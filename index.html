@@ -148,14 +148,6 @@
 
     var map = L.map('map', options);
 
-    //Old Basemap
-    // var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/light_all/{z}/{x}/{y}.png', {
-    //   attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="http://cartodb.com/attributions">CartoDB</a>',
-    //   subdomains: 'abcd',
-    //   maxZoom: 19
-    // }).addTo(map);
-
-
     // New black and white basemap from https://leaflet-extras.github.io/leaflet-providers/preview/
     var CartoDB_Positron = L.tileLayer(
       'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png', {
