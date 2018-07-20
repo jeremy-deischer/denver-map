@@ -7,12 +7,9 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
 
   <style>
     body {
@@ -31,20 +28,19 @@
 
     h1 {
       font-size: 2em;
-      font-family: "PT Sans", sans-serif;
+      font-family: "Playfair", serif;
       letter-spacing: 0.04em;
     }
 
     h2 {
       font-size: 1.5em;
-      font-family: "PT Sans", sans-serif;
+      font-family: "Playfair", serif;
       letter-spacing: 0.04em;
     }
 
     p {
       font-size: 1.0em;
       line-height: 1.2em;
-      padding-left: 20px;
     }
 
     a {
@@ -58,13 +54,14 @@
     }
 
     ul {
-      padding-left: 50px;
-      font-family: "Playfair", serif;
+      font-family: "PT Sans", sans-serif;
+      list-style-type: none;
+      padding-left: 0;
     }
 
     li {
-      margin: 16px 0;
-      font-family: "Playfair", serif;
+      margin: 16px 12px;
+      font-family: "PT Sans", sans-serif;
     }
 
     #map {
@@ -81,14 +78,19 @@
 
     .bio {
       color: #424ef4;
-      font-size: 0.6em;
+      font-size: 0.9em;
+      margin-top: 18px;
     }
 
     .column {
       float: left;
-      width: 49%;
-      margin-right: 1%
-      }
+      width: 47%;
+      margin-right: 1%;
+      padding-left: 12px;
+      background: white;
+      color: #333333;
+    }
+
     .clear {
       clear: both;
     }
@@ -104,48 +106,42 @@
   </section>
   <section>
     <h2>Facts about Denver, CO</h2>
-    <div class="column" style="background-color:#aaa;">
+    <div class="column">
       <ul>
-        <li>Denver is well known for being a mile above sea level. The capital building even has a <a href="http://www.denverrelocationguide.com/Which-Denver-State-Capitol-Step-is-One-Mile-High/" target=_blank>one mile above sea level step</a> that is at
-          the wrong elevation.
-          <li>Denver has an extreme rich beer history going back to the City's founding in 1859. More beer is brewed in Denver than any other City, leading to some people to call Denver the <a href="https://www.denver.org/about-denver/denver-history/denver-beer-history/"
-              target="_blank">Napa Valley of Beer</a>.
+        <li>Denver is well known for being a mile above sea level. The capital building even has a
+          <a href="http://www.denverrelocationguide.com/Which-Denver-State-Capitol-Step-is-One-Mile-High/" target=_blank>one mile above sea level step</a> that is at the wrong elevation.</li>
+        <li>Denver has an extreme rich beer history going back to the City's founding in 1859. More beer is brewed in Denver
+          than any other City, leading to some people to call Denver the
+          <a href="https://www.denver.org/about-denver/denver-history/denver-beer-history/" target="_blank">Napa Valley of Beer</a>.</li>
       </ul>
     </div>
 
-    <div class="column" style="background-color:#bbb;">
+    <div class="column">
       <ul>
-          <li>Denver holds <a href="http://www.guinnessworldrecords.com/search?term=denver+colorado" target=_blank>10 Guinness World Records</a> </li>
-          <li>Denver has multiple drainageways running through City, including the South Platte River and Cherry Creek. The <a href="https://udfcd.org/" target=_blank>Urban Drainage and Flood Control District </a> does a great job managing the drainageways and
-                preparing master plans to plan for future development. </li>
+        <li>Denver holds
+          <a href="http://www.guinnessworldrecords.com/search?term=denver+colorado" target=_blank>10 Guinness World Records</a>
+        </li>
+        <li>Denver has multiple drainageways running through City, including the South Platte River and Cherry Creek. The
+          <a href="https://udfcd.org/" target=_blank>Urban Drainage and Flood Control District </a> does a great job managing the drainageways and preparing master
+          plans to plan for future development. </li>
       </ul>
     </div>
-    <div class="clear">
-      <span class="bio">
-        <p>See my projects on GitHub: <a href="https://github.com/jeremy-deischer">Jeremy Deischer</a></p>
-        <p>Follow me on Twitter: <a href="https://twitter.com/JeremyDeischer">@JeremyDeischer</a></p>
-      </span>
-    </div>
+    <div class="clear"></div>
+    <span class="bio">
+      <p>See my projects on GitHub:
+        <a href="https://github.com/jeremy-deischer">Jeremy Deischer</a>
+      </p>
+      <p>Follow me on Twitter:
+        <a href="https://twitter.com/JeremyDeischer">@JeremyDeischer</a>
+      </p>
+    </span>
+
   </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.js"></script>
+
   <script>
-    // document.querySelector('h1').innerHTML = 'web mapping is sweet!';
-    var map = document.getElementById('map');
-    // map.style.background = '#4d4a9f';
-
-    map.addEventListener('click', function() {
-      document.getElementById('map').innerHTML = '<img src="https://www.langan.com/wp-content/uploads/2017/08/Denver.jpg">';
-    });
-
-    //     map.addEventListener('click', function() {
-    //   this.style.width = '400px';
-    // });
-    // var newListItem = document.createElement('li');
-    // newListItem.innerHTML = "list item 4";
-    // document.querySelector('ul').appendChild(newListItem);
-
-
-
-    console.log("hello map");
     var options = {
       center: [39.738, -104.990],
       zoom: 12
@@ -153,20 +149,13 @@
 
     var map = L.map('map', options);
 
-    //Old Basemap
-    // var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/light_all/{z}/{x}/{y}.png', {
-    //   attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="http://cartodb.com/attributions">CartoDB</a>',
-    //   subdomains: 'abcd',
-    //   maxZoom: 19
-    // }).addTo(map);
-
-
     // New black and white basemap from https://leaflet-extras.github.io/leaflet-providers/preview/
-    var CartoDB_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(map);
+    var CartoDB_Positron = L.tileLayer(
+      'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
 
     var message = 'Mile High City';
 
