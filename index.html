@@ -177,9 +177,9 @@
         details = [location1Details, location2Details, location3Details];
 
     //Creating string of location information for each location pulling data from the arrays
-    var location1Tooltip = "<b>" + locations[0] + "</b><br>" + "<b>Details</b>: " + details[0];
-    var location2Tooltip = "<b>" + locations[1] + "</b><br>" + "<b>Details</b>: " + details[1];
-    var location3Tooltip = "<b>" + locations[2] + "</b><br>" + "<b>Details</b>: " + details[2];
+    var location1Tooltip = "<b>" + locations[0] + "</b><br>" + "<b>Details</b>: " + details[0] + "<br>" + '<img src = "https://www.colorado.com/sites/default/files/styles/1000x685/public/capitol_vd_bobash.jpg?itok=a3NT_-7n" alt="Capital Building" width=120px height=80px>';
+    var location2Tooltip = "<b>" + locations[1] + "</b><br>" + "<b>Details</b>: " + details[1] + "<br>" + '<img src = "https://sites.google.com/a/udfcd.org/udfcd-criteria-manual/_/rsrc/1468872968894/config/app/images/customLogo/customLogo.gif?revision=2" alt="UDFCD" width=80px height=80px>';
+    var location3Tooltip = "<b>" + locations[2] + "</b><br>" + "<b>Details</b>: " + details[2] + "<br>" + '<img src = "https://mediaassets.thedenverchannel.com/photo/2017/02/08/Casta%20Bonita_waterless%20pool_1486615136260_54816819_ver1.0_640_480.jpg" alt="waterfall" height=80px width=120px>';
 
     //Creating a leaflet marker for each location and label.
     L.marker(coords[0]).addTo(map)
