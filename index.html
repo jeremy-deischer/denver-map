@@ -142,7 +142,6 @@
       document.getElementById('map').innerHTML = '<img src="https://www.langan.com/wp-content/uploads/2017/08/Denver.jpg">';
     });
 
-onsole.log("hello map");
     var options = {
       center: [39.738, -104.990],
       zoom: 12
@@ -159,10 +158,38 @@ onsole.log("hello map");
 
     var message = 'Mile High City';
 
-    L.marker(map.getCenter())
-      .bindTooltip(message)
-      .addTo(map)
-      .openTooltip();
+    var location1Name = 'Capital Building',
+        location1Coords = [39.739, -104.990],
+        location1Details = '5280 ft above sea level';
+
+    var location2Name = 'Urban Drainage',
+        location2Coords = [39.75382,-105.017],
+        location2Details = 'Suite 156B';
+
+    var location3Name = 'Casa Bonita',
+        location3Coords = [39.7417,-105.0707],
+        location3Details = '30-ft waterfall & puppet shows';
+
+    //Creating an array of data for the 3 locations defined above
+    var locations = [location1Name, location2Name, location3Name],
+        coords = [location1Coords, location2Coords, location3Coords],
+        details = [location1Details, location2Details, location3Details];
+
+    //Creating string of location information for each location from location information already defined
+    var location1Tooltip = "<b>" + locations[0] + "</b><br>" + "<b>Details</b>: " + details[0];
+    var location2Tooltip = "<b>" + locations[1] + "</b><br>" + "<b>Details</b>: " + details[1];
+    var location3Tooltip = "<b>" + locations[2] + "</b><br>" + "<b>Details</b>: " + details[2];
+
+    //Creating a leaflet marker for each location and label.
+    L.marker(coords[0]).addTo(map)
+      .bindTooltip(location1Tooltip);
+
+    L.marker(coords[1]).addTo(map)
+      .bindTooltip(location2Tooltip);
+
+    L.marker(coords[2]).addTo(map)
+      .bindTooltip(location3Tooltip);
+
   </script>
 </body>
 
