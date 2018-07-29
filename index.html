@@ -201,11 +201,11 @@
       var locationTooltip = "<b>" + nameLocation[i] + "</b><br>" +
         "<b>Details</b>: " + detailsLocation[i] + "<br>" +
         imageLocation[i];
-        // Tests if food location array is true for element i
-        if(foodLocation[i]){
-          //if true, add 'serves food' to tooltip
-          locationTooltip += "<br>" + "Serves Food";
-        }
+      // Tests if food location array is true for element i
+      if (foodLocation[i]) {
+        //if true, add 'serves food' to tooltip
+        locationTooltip += "<br>" + "Serves Food";
+      }
 
 
       L.marker(coordinateLocation[i]).addTo(map)
