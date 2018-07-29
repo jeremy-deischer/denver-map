@@ -182,26 +182,25 @@
       maxZoom: 19
     }).addTo(map);
 
-    var message = 'Mile High City';
 
-    // Define each location and the coordinates and a description that will be displayed on the tooltip
-    var location1Name = 'Capital Building',
-      location1Coords = [39.739, -104.990],
-      location1Details = '5280 ft above sea level';
+    //Declare 3 areas with information about each location in the city
 
-    var location2Name = 'Urban Drainage',
-      location2Coords = [39.75382, -105.017],
-      location2Details = 'Suite 156B';
+    var coordinateLocation = [[39.739, -104.990],[39.75382, -105.017],[39.7417, -105.0707]];
+    var nameLocation = ['Capital Building','Urban Drainage','Casa Bonita'];
+    var detailsLocation = ['5280 ft above sea level','Suite 156B','30-ft waterfall & puppet shows'];
+    var imageLocation = ["https://www.colorado.com/sites/default/files/styles/1000x685/public/capitol_vd_bobash.jpg?itok=a3NT_-7n",
+                        "https://sites.google.com/a/udfcd.org/udfcd-criteria-manual/_/rsrc/1468872968894/config/app/images/customLogo/customLogo.gif?revision=2",
+                        "https://mediaassets.thedenverchannel.com/photo/2017/02/08/Casta%20Bonita_waterless%20pool_1486615136260_54816819_ver1.0_640_480.jpg"];
 
-    var location3Name = 'Casa Bonita',
-      location3Coords = [39.7417, -105.0707],
-      location3Details = '30-ft waterfall & puppet shows';
+    for (i = 0; i < nameLocation.length; i++){
+      var locationTooltip = "<b>" + nameLocation[i] + "</b><br>" +
+        "<b>Details</b>: " + detailsLocation[i];
 
-    //Creating an array of data for the locations above
-    var locations = [location1Name, location2Name, location3Name],
-      coords = [location1Coords, location2Coords, location3Coords],
-      details = [location1Details, location2Details, location3Details];
+      L.marker(coordinateLocation[i]).addTo(map)
+        .bindTooltip(locationTooltip);
+    }
 
+    
     //Creating string of location information for each location pulling data from the arrays
     var location1Tooltip = "<b>" + locations[0] + "</b><br>" + "<b>Details</b>: " + details[0] + "<br>" +
       '<img src = "https://www.colorado.com/sites/default/files/styles/1000x685/public/capitol_vd_bobash.jpg?itok=a3NT_-7n" alt="Capital Building" width=120px height=80px>';
