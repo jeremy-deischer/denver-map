@@ -41,8 +41,8 @@
     }
 
     .leaflet-popup h2 {
-      display:block;
-      float:none;
+      display: block;
+      float: none;
       margin-bottom: 0.3em;
     }
 
@@ -257,44 +257,43 @@
     var button = document.getElementById("hidden-locations");
 
     button.addEventListener("click", function() {
-        for (i = 0; i < nameLocationHidden.length; i++) {
-          //Build Location popup
-          var locationPopupHidden = "<h2>" + nameLocationHidden[i] + "</h2>" + detailsLocationHidden[i];
+      for (i = 0; i < nameLocationHidden.length; i++) {
+        //Build Location popup
+        var locationPopupHidden = "<h2>" + nameLocationHidden[i] + "</h2>" + detailsLocationHidden[i];
 
-          //Build Leaflet icon by calling function to determine type of location
-          var iconLocationHidden = createIconHidden(typeLocation[i]);
+        //Build Leaflet icon by calling function to determine type of location
+        var iconLocationHidden = createIconHidden(typeLocation[i]);
 
-          L.marker(coordinateLocationHidden[i], {
-              icon: iconLocationHidden //insert returned function value
-            })
-            .addTo(map)
-            .bindPopup(locationPopupHidden)
-        }
-      });
+        L.marker(coordinateLocationHidden[i], {
+            icon: iconLocationHidden //insert returned function value
+          })
+          .addTo(map)
+          .bindPopup(locationPopupHidden)
+      }
+    });
 
-      //Function to determine type of hidden location and return logo
-      function createIconHidden(typeOfLocation) {
-        var iconURL = "",
-          iconSize = 30;
+    //Function to determine type of hidden location and return logo
+    function createIconHidden(typeOfLocation) {
+      var iconURL = "",
+        iconSize = 30;
 
-        if (typeOfLocation == "Type 1") {
-          iconURL = typeIconURLHidden[0];
-        } else if (typeOfLocation == "Type 2") {
-          iconURL = typeIconURLHidden[1];
-        } else if (typeOfLocation == "Type 3") {
-          iconURL = typeIconURLHidden[2];
-        };
-
-        // Create a Leaflet icon object
-        var resultHidden = L.icon({
-          iconUrl: iconURL,
-          iconSize: iconSize,
-          popupAnchor: [0, -15] // Center of your icon is [0,0]
-        });
-
-        return resultHidden;
+      if (typeOfLocation == "Type 1") {
+        iconURL = typeIconURLHidden[0];
+      } else if (typeOfLocation == "Type 2") {
+        iconURL = typeIconURLHidden[1];
+      } else if (typeOfLocation == "Type 3") {
+        iconURL = typeIconURLHidden[2];
       };
 
+      // Create a Leaflet icon object
+      var resultHidden = L.icon({
+        iconUrl: iconURL,
+        iconSize: iconSize,
+        popupAnchor: [0, -15] // Center of your icon is [0,0]
+      });
+
+      return resultHidden;
+    };
   </script>
 </body>
 
