@@ -46,6 +46,20 @@
       margin-bottom: 0.3em;
     }
 
+    .leaflet-popup-content h3 {
+      font-family: "Lora", serif;
+      font-size: 1.3em;
+      margin-bottom: 6px;
+    }
+
+    .leaflet-popup-content p {
+      margin: 3px 0 6px;
+      font-size: 1.1em;
+    }
+
+    .leaflet-popup-content a {
+      font-weight: normal;
+    }
 
     p {
       font-size: 1.0em;
@@ -192,8 +206,7 @@
       maxZoom: 19
     }).addTo(map);
 
-    var myLocations = [
-      {
+    var myLocations = [{
         name: "Capital Building",
         properties: {
           coordinates: [39.739, -104.990],
@@ -242,6 +255,35 @@
         }
       },
     ]
+
+    //Variable to reference 0 index
+    var i = 0;
+    //Variable assigned the object as the value
+    var props = myLocations[i].properties;
+    //Build popup for each location
+    var popup =
+      "<h3>" +
+      myLocations[i].name +
+      "</h3>" +
+      "<p>" +
+      props.details +
+      "</p>";
+
+    var marker = L.marker(myLocations[i].properties.coordinates, {
+        icon: icon
+      })
+      .addTo(map)
+      .bindPopup(popup);
+
+    marker.on("mouseover", function() {
+      this.openPopup();
+    });
+    marker.on("mouseout", function() {
+      this.closePopup();
+    });
+
+
+
 
     // var coordinateLocationHidden = [
     //   [39.680527, -104.843065],
