@@ -193,8 +193,8 @@
     });
 
     var options = {
-      center: [39.818, -104.990],
-      zoom: 10.25
+      center: [39.664056, -105.003380],
+      zoom: 11
     }
 
     var map = L.map('map', options);
@@ -207,73 +207,110 @@
     }).addTo(map);
 
     var myLocations = [{
-        name: "Capital Building",
+        name: "Shanahan's Steakhouse",
         properties: {
-          coordinates: [39.739, -104.990],
-          type: "Gov Building",
-          details: "5280 ft above sea level"
+          coordinates: [39.625084, -104.900159],
+          icon: 'svgs/restaurant-15.svg',
+          details: "Fine dining",
+          url: 'https://www.shanahanssteakhouse.com/'
         }
       },
       {
         name: "Urban Drainage",
         properties: {
           coordinates: [39.75382, -105.017],
-          type: "Gov Building",
-          details: "Protect People, Property, and the Environment."
+          icon: 'svgs/water-15.svg',
+          details: "Protect People, Property, and the Environment.",
+          url: 'https://udfcd.org/'
         }
       },
       {
         name: "Casa Bonita",
         properties: {
           coordinates: [39.7417, -105.0707],
-          type: "Food",
-          details: "Family Friendly"
+          icon: 'svgs/restaurant-15.svg',
+          details: "Family Friendly",
+          url: 'http://www.casabonitadenver.com/'
         }
       },
       {
         name: "Cherry Cricket",
         properties: {
           coordinates: [39.719562, -104.956121],
-          type: "Food",
-          details: "Best Burger in Town"
+          icon: 'svgs/burger-15.svg',
+          details: "Best Burger in Town",
+          url:'https://www.cherrycricket.com/'
         }
       },
       {
         name: "Sportsbook Bar and Grill",
         properties: {
           coordinates: [39.593650, -104.877246],
-          type: "Food",
-          details: "The place to watch a game"
+          icon: 'svgs/football-15.svg',
+          details: "The place to watch a game",
+          url: 'https://www.thesbbar.com/'
         }
       },
       {
         name: "Denver Mint",
         properties: {
           coordinates: [39.739288, -104.992362],
-          type: "Gov Building",
-          details: "Family Friendly"
+          icon: 'svgs/mint-15.svg',
+          details: "One of two mints in the country",
+          url: 'https://www.usmint.gov/about/mint-tours-facilities/denver/visiting-the-denver-mint'
         }
       },
+      {
+        name: "The Pint Room",
+        properties: {
+          coordinates: [39.623144, -105.018572],
+          icon: 'svgs/bar-15.svg',
+          details: "Grab a drink by the South Platte River",
+          url: 'http://www.pintroom.com/littleton-colorado/'
+        }
+      },
+      {
+        name: "Chatfield Reservoir ",
+        properties: {
+          coordinates: [39.548377, -105.066257],
+          icon: 'svgs/swim-15.svg',
+          details: "Great summer recreation",
+          url:'http://cpw.state.co.us/placestogo/parks/Chatfield'
+        }
+      }
     ]
 
-    //Variable to reference 0 index
-    var i = 0;
-    //Variable assigned the object as the value
-    var props = myLocations[i].properties;
-    //Build popup for each location
-    var popup =
-      "<h3>" +
-      myLocations[i].name +
-      "</h3>" +
-      "<p>" +
-      props.details +
-      "</p>";
+    for (var i in myLocations) {
+      //Variable assigned the object as the value
+      var props = myLocations[i].properties;
+      //Build popup for each location
+      var popup =
+        "<h3>" +
+        myLocations[i].name +
+        "</h3>" +
+        "<p>" +
+        props.details +
+        "</p>" +
+        "<p><b>Website</b>: <a href='" +
+        props.url +
+        "'>" +
+        props.url +
+        "</a></p>";
 
-    var marker = L.marker(myLocations[i].properties.coordinates, {
-        icon: icon
-      })
-      .addTo(map)
-      .bindPopup(popup);
+
+      var icon = L.icon({
+        iconUrl: props.icon,
+        iconSize: [40, 40],
+        popupAnchor: [0, -22],
+        className: "icon"
+      });
+
+      var marker = L.marker(myLocations[i].properties.coordinates, {
+          icon: icon
+        })
+        .addTo(map)
+        .bindPopup(popup);
+    }
 
     marker.on("mouseover", function() {
       this.openPopup();
