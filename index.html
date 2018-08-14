@@ -243,68 +243,56 @@
       },
     ]
 
-    var coordinateLocationHidden = [
-      [39.680527, -104.843065],
-      [40.009246, -105.266923],
-      [39.745031, -105.002351]
-    ];
-    var nameLocation = ['Capital Building', 'Urban Drainage', 'Casa Bonita'];
-    var nameLocationHidden = ['Overland High School', 'University of Colorado Boulder', 'Univeristy of Colorado Denver'];
-    var detailsLocation = ['5280 ft above sea level', 'Suite 156B', '30-ft waterfall & puppet shows'];
-    var detailsLocationHidden = ['High School', 'Undergrad', 'Graduate'];
-    // var imageLocation = ['<img src = "https://www.colorado.com/sites/default/files/styles/1000x685/public/capitol_vd_bobash.jpg?itok=a3NT_-7n" alt="Capital Building" width=120px height=80px>',
-    //   '<img src = "https://sites.google.com/a/udfcd.org/udfcd-criteria-manual/_/rsrc/1468872968894/config/app/images/customLogo/customLogo.gif?revision=2" alt="UDFCD" width=80px height=80px>',
-    //   '<img src = "https://mediaassets.thedenverchannel.com/photo/2017/02/08/Casta%20Bonita_waterless%20pool_1486615136260_54816819_ver1.0_640_480.jpg" alt="waterfall" height=80px width=120px>'
+    // var coordinateLocationHidden = [
+    //   [39.680527, -104.843065],
+    //   [40.009246, -105.266923],
+    //   [39.745031, -105.002351]
     // ];
-    //Location type is categories for marker symbols
-    var typeLocation = ["Type 1", "Type 2", "Type 3"];
-    //url for icon
-    var typeIconURL = ["svgs\\mapbox-maki-463a9ff\\icons\\ranger-station-11.svg", "svgs\\mapbox-maki-463a9ff\\icons\\water-11.svg", "svgs\\mapbox-maki-463a9ff\\icons\\picnic-site-11.svg"]
-    var typeIconURLHidden = ["svgs\\mapbox-maki-463a9ff\\icons\\landmark-11.svg", "svgs\\mapbox-maki-463a9ff\\icons\\college-11.svg", "svgs\\mapbox-maki-463a9ff\\icons\\college-15.svg"]
+    // var nameLocationHidden = ['Overland High School', 'University of Colorado Boulder', 'Univeristy of Colorado Denver'];
+    // var detailsLocationHidden = ['High School', 'Undergrad', 'Graduate'];
+    // var typeIconURLHidden = ["svgs\\mapbox-maki-463a9ff\\icons\\landmark-11.svg", "svgs\\mapbox-maki-463a9ff\\icons\\college-11.svg", "svgs\\mapbox-maki-463a9ff\\icons\\college-15.svg"]
 
 
-      return result;
-    };
 
-    var button = document.getElementById("hidden-locations");
-    button.addEventListener("click", function() {
-      for (i = 0; i < nameLocationHidden.length; i++) {
-        //Build Location popup
-        var locationPopupHidden = "<h2>" + nameLocationHidden[i] + "</h2>" + detailsLocationHidden[i];
-
-        //Build Leaflet icon by calling function to determine type of location
-        var iconLocationHidden = createIconHidden(typeLocation[i]);
-
-        L.marker(coordinateLocationHidden[i], {
-            icon: iconLocationHidden //insert returned function value
-          })
-          .addTo(map)
-          .bindPopup(locationPopupHidden)
-      }
-    });
-
-    //Function to determine type of hidden location and return logo
-    function createIconHidden(typeOfLocation) {
-      var iconURL = "",
-        iconSize = 30;
-
-      if (typeOfLocation == "Type 1") {
-        iconURL = typeIconURLHidden[0];
-      } else if (typeOfLocation == "Type 2") {
-        iconURL = typeIconURLHidden[1];
-      } else if (typeOfLocation == "Type 3") {
-        iconURL = typeIconURLHidden[2];
-      };
-
-      // Create a Leaflet icon object
-      var resultHidden = L.icon({
-        iconUrl: iconURL,
-        iconSize: iconSize,
-        popupAnchor: [0, -15] // Center of your icon is [0,0]
-      });
-
-      return resultHidden;
-    };
+    // var button = document.getElementById("hidden-locations");
+    // button.addEventListener("click", function() {
+    //   for (i = 0; i < nameLocationHidden.length; i++) {
+    //     //Build Location popup
+    //     var locationPopupHidden = "<h2>" + nameLocationHidden[i] + "</h2>" + detailsLocationHidden[i];
+    //
+    //     //Build Leaflet icon by calling function to determine type of location
+    //     var iconLocationHidden = createIconHidden(typeLocation[i]);
+    //
+    //     L.marker(coordinateLocationHidden[i], {
+    //         icon: iconLocationHidden //insert returned function value
+    //       })
+    //       .addTo(map)
+    //       .bindPopup(locationPopupHidden)
+    //   }
+    // });
+    //
+    // //Function to determine type of hidden location and return logo
+    // function createIconHidden(typeOfLocation) {
+    //   var iconURL = "",
+    //     iconSize = 30;
+    //
+    //   if (typeOfLocation == "Type 1") {
+    //     iconURL = typeIconURLHidden[0];
+    //   } else if (typeOfLocation == "Type 2") {
+    //     iconURL = typeIconURLHidden[1];
+    //   } else if (typeOfLocation == "Type 3") {
+    //     iconURL = typeIconURLHidden[2];
+    //   };
+    //
+    //   // Create a Leaflet icon object
+    //   var resultHidden = L.icon({
+    //     iconUrl: iconURL,
+    //     iconSize: iconSize,
+    //     popupAnchor: [0, -15] // Center of your icon is [0,0]
+    //   });
+    //
+    //   return resultHidden;
+    // };
   </script>
 </body>
 
