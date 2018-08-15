@@ -285,18 +285,10 @@
       //Variable assigned the object as the value
       var props = location.properties;
       //Build popup for each location
-      var popup =
-        "<h3>" +
-        location.name +
-        "</h3>" +
-        "<p>" +
-        props.details +
-        "</p>" +
-        "<p><b>Website</b>: <a href='" +
-        props.url +
-        "'target='_blank'>" +
-        props.url +
-        "</a></p>";
+      var popup = "<h3>" + location.name + "</h3>" +
+        "<p>" + props.details + "</p>" +
+        "<p><b>Website</b>: <a href='" +props.url + "'target='_blank'>" +
+        props.url + "</a></p>";
 
 
       var icon = L.icon({
@@ -311,15 +303,16 @@
         })
         .addTo(map)
         .bindPopup(popup);
-      
+
+      marker.on("mouseover", function() {
+        this.openPopup();
+      });
+      marker.on("mouseout", function() {
+        this.closePopup();
+      });
+
     });  // end forEach
 
-    marker.on("mouseover", function() {
-      this.openPopup();
-    });
-    marker.on("mouseout", function() {
-      this.closePopup();
-    });
 
 
 
