@@ -280,13 +280,14 @@
       }
     ]
 
-    for (var i in myLocations) {
+    myLocations.forEach(function(location, i) {
+
       //Variable assigned the object as the value
-      var props = myLocations[i].properties;
+      var props = location.properties;
       //Build popup for each location
       var popup =
         "<h3>" +
-        myLocations[i].name +
+        location.name +
         "</h3>" +
         "<p>" +
         props.details +
@@ -310,7 +311,8 @@
         })
         .addTo(map)
         .bindPopup(popup);
-    }
+      
+    });  // end forEach
 
     marker.on("mouseover", function() {
       this.openPopup();
@@ -318,6 +320,8 @@
     marker.on("mouseout", function() {
       this.closePopup();
     });
+
+
 
 
 
