@@ -180,7 +180,7 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.js"></script>
-
+  <script src="data/route.js"></script> //Commute data loaded from this location
   <script>
     // select button and listen for click
     $("#btn-modal").click(function() {
@@ -319,7 +319,35 @@
       this.closePopup();
     });
 
+    // Commute geoJson information
+    var myRoute = L.geoJson(routeData, {
 
+      filter: function(feature) {
+        if (feature.geometry.type == "LineString") {
+          return feature;
+        }
+      },
+      style: function(feature) {
+        return {
+          color: "#005DAA",
+          weight: 3,
+          opacity: .6,
+          dashArray: "10, 10"
+        }
+      }
+    }).addTo(map);
+
+    var myStops = L.geoJson(routeData, {
+      filter: function(feature) {
+        if (feature.geometry.type == "Point") {
+          return feature;
+        }
+      },
+      onEachFeature: function(feature, layer) {
+        layer.bindTooltip(feature.properties.name);
+      }
+
+    }).addTo(map);
 
 
     // var coordinateLocationHidden = [
